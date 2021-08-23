@@ -8,6 +8,7 @@ import Work from '../../components/Work/Work.component';
 import Projects  from '../../components/Projects/Projects.component';
 import Ventures from '../../components/Ventures/Ventures.component';
 import Connect from '../../components/Connect/Connect.component';
+import Footer from '../../components/Footer/Footer.component';
 
 
 const HomePage = () => {
@@ -29,6 +30,7 @@ const HomePage = () => {
     <Projects />
     <Ventures />
     <Connect />
+    <Footer />
     </>
   )
 }

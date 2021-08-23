@@ -5,9 +5,9 @@ export const Main = styled.div`
   padding-bottom: 50px;
   padding-right: 55px;
   padding-left: 55px;
-  background-color : #191919;
+  background-color : #282828;
   color : white;
-  height : 40vh;
+  height : 45vh;
   display: flex;
   flex-direction : column;
   justify-content : center;
