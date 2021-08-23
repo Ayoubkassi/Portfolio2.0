@@ -5,7 +5,7 @@ const Projects = () => {
   return (
     <Main>
         <Title>Popular Projects</Title>
-        <table className="table">
+        <table className="table" style={{ paddingBottom: "60px",paddingTop: "60px"}}>
           <thead>
             <tr>
               <th scope="col">Title</th>

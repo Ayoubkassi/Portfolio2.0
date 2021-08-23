@@ -6,6 +6,7 @@ import { Main , More , Down } from './HomePage.styles';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import Work from '../../components/Work/Work.component';
 import Projects  from '../../components/Projects/Projects.component';
+import Ventures from '../../components/Ventures/Ventures.component';
 
 
 
@@ -26,6 +27,7 @@ const HomePage = () => {
     </Main>
     <Work />
     <Projects />
+    <Ventures />
     </>
   )
 }

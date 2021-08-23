@@ -18,7 +18,7 @@ export const Title = styled.p`
 export const Description = styled.p`
 padding-bottom: 60px;
 padding-top: 20px;
-font-size: 1.1em;
+font-size: 1em;
 letter-spacing: 1px;
 margin: 0px;
 font-weight: 400;

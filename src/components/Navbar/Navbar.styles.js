@@ -10,7 +10,7 @@ export const Nav = styled.div`
   height : 120px;
   padding: 50px;
   align-items : center;
-  
+
 `
 
 export const Logo = styled(Link)`
