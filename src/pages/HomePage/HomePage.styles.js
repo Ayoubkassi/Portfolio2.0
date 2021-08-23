@@ -27,3 +27,11 @@ export const More = styled(Link)`
   font-weight : 500;
   cursor : pointer;
 `
+export const Social = styled.div`
+  position : absolute;
+  left : 1%;
+  top : 63%;
+  transform : translate(-5%,-50%);
+  max-width : 3vw;
+
+`

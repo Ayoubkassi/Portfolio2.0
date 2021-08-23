@@ -8,16 +8,16 @@ import instagram from '../../assets/instagram.svg';
 import message from '../../assets/message.svg';
 import twitter from '../../assets/twitter.svg';
 
-const Media = (props) => {
+const Media = ({flexDirection, size}) => {
   return (
-    <Social>
-      <Item><img src={youtube} style={{width : '40px'}}/></Item>
-      <Item><img src={snap} style={{width : '40px'}}/></Item>
-      <Item><img src={discord} style={{width : '40px'}}/></Item>
-      <Item><img src={github} style={{width : '40px'}}/></Item>
-      <Item><img src={instagram} style={{width : '40px'}}/></Item>
-      <Item><img src={message} style={{width : '40px'}}/></Item>
-      <Item><img src={twitter} style={{width : '40px'}}/></Item>
+    <Social flexDirection={flexDirection} >
+      <Item size={size}><img src={youtube} style={{width : size ? '20px' : '40px'}}/></Item>
+      <Item size={size}><img src={snap} style={{width : size ? '20px' : '40px'}}/></Item>
+      <Item size={size}><img src={discord} style={{width : size ? '20px' : '40px'}}/></Item>
+      <Item size={size}><img src={github} style={{width : size ? '20px' : '40px'}}/></Item>
+      <Item size={size}><img src={instagram} style={{width : size ? '20px' : '40px'}}/></Item>
+      <Item size={size}><img src={message} style={{width : size ? '20px' : '40px'}}/></Item>
+      <Item size={size}><img src={twitter} style={{width : size ? '20px' : '40px'}}/></Item>
     </Social>
   )
 }
