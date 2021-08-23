@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import back from '../../assets/back.jpg';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 
 export const Main = styled.div`
@@ -10,6 +10,7 @@ export const Main = styled.div`
   background-position:center;
   background-size : cover;
   max-width : 100vw;
+  color : white;
 `
 
 export const Down = styled.div`
@@ -24,4 +25,5 @@ export const More = styled(Link)`
   color : white;
   font-size : 26px;
   font-weight : 500;
+  cursor : pointer;
 `

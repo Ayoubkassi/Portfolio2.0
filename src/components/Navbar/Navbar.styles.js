@@ -10,6 +10,7 @@ export const Nav = styled.div`
   height : 120px;
   padding: 50px;
   align-items : center;
+  
 `
 
 export const Logo = styled(Link)`
@@ -42,5 +43,6 @@ export const Item = styled(Link)`
   font-size : 18px;
   &:hover{
     background-color : rgba(255,255,255,0.2);
+    transition : all 0.8s ease-out;
   }
 `

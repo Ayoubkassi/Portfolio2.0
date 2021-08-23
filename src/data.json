@@ -1,0 +1,22 @@
+{
+  "works" : [
+    {
+    "title": "Software Development",
+    "items": ["Java/C# Automation. CPU bound business logic","Low level/embedded IoT programming",
+              "Cloud computing, microservices, APIs, full stack web apps"]
+  },
+  {
+    "title": "Electronics",
+    "items": ["LED Music visualizer","Robotics, batteries, embedded systems","Trying to not blow myself up by teaching myself EE is quite exciting"]
+  },
+  {
+    "title": "Video Production",
+    "items":["Developer Vlog: Document the learning process of engineering","Weekly videos on YouTube. Building a community of technology enthusiasts.",
+        "High quality visuals and meaningful stories"]
+  },
+  {
+    "title":"Community",
+    "items":["Open source projects on Github","Discord"]
+  }
+]
+}
