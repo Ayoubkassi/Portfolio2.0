@@ -7,7 +7,7 @@ import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import Work from '../../components/Work/Work.component';
 import Projects  from '../../components/Projects/Projects.component';
 import Ventures from '../../components/Ventures/Ventures.component';
-
+import Connect from '../../components/Connect/Connect.component';
 
 
 const HomePage = () => {
@@ -28,6 +28,7 @@ const HomePage = () => {
     <Work />
     <Projects />
     <Ventures />
+    <Connect />
     </>
   )
 }

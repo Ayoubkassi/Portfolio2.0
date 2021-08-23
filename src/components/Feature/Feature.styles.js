@@ -11,7 +11,7 @@ export const Title = styled.h5`
   margin-bottom: .5rem;
   font-weight: 500;
   line-height: 1.1;
-  margin-left : -14px;
+  margin-left : -10px;
 `
 
 export const List = styled.ul`

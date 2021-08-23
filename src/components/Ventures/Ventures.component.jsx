@@ -1,5 +1,5 @@
 import React from 'react'
-import { Main , Title , Item , List , Motivation } from './Ventures.styles';
+import { Main , Title , Item , List , Motivation , Info , Btn} from './Ventures.styles';
 
 const Ventures = () => {
   return (
@@ -17,6 +17,10 @@ const Ventures = () => {
         <Item>Toasting bread instantly</Item>
       </List>
       <Motivation>I have many interests besides technology that I may share in a similar approach. You can read more about my technology stack on the software page.</Motivation>
+      <Info>
+        <Btn>Software</Btn>
+        <Btn>Contact Me</Btn>
+      </Info>
     </Main>
   )
 }
