@@ -6,7 +6,7 @@ export const Main = styled.div`
   align-items : center;
   flex-direction : column;
   text-align : start;
-
+  color : #212529;
 `
 export const Container = styled.div`
   width : 40vw;
