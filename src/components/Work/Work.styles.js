@@ -1,7 +1,25 @@
 import styled from 'styled-components';
 
 export const Main = styled.div`
-  height: 100vh;
   background : #191919;
-  max-width : 100vw;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-right: 55px;
+  padding-left: 55px;
+`
+
+export const Title = styled.p`
+  letter-spacing : 10px;
+  padding-bottom : 60px;
+  font-size: 2rem;
+`
+
+export const Description = styled.p`
+padding-bottom: 60px;
+padding-top: 20px;
+font-size: 1.1em;
+letter-spacing: 1px;
+margin: 0px;
+font-weight: 400;
+line-height: 1.5;
 `

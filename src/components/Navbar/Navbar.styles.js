@@ -6,7 +6,7 @@ export const Nav = styled.div`
   z-index : 1000;
   justifu-content : space-between;
   background-color : transparent;
-  width : 100vw;
+  max-width : 100vw;
   height : 120px;
   padding: 50px;
   align-items : center;
