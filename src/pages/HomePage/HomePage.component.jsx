@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <>
     <Main>
-      <Navbar />
+      <Navbar background="transparent" color="white"/>
       <Landing />
       <Social>
         <Media flexDirection="column" size="medium"/>
