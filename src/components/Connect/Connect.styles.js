@@ -9,6 +9,8 @@ export const Main = styled.div`
   color : white;
   height : 40vh;
   display: flex;
-  align-items : center;
+  flex-direction : column;
   justify-content : center;
+  align-items : center;
+
 `
