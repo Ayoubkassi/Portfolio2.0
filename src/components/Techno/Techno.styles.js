@@ -28,5 +28,5 @@ export const Features = styled.div`
   grid-template-columns : repeat(6,1fr);
   grid-gap : 30px;
   padding-top : 60px;
-  padding-bottom: 30px;
+  padding-bottom: 80px;
 `

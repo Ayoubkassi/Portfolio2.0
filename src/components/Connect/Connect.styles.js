@@ -7,7 +7,7 @@ export const Main = styled.div`
   padding-left: 55px;
   background-color : #282828;
   color : white;
-  height : 45vh;
+  height : 55vh;
   display: flex;
   flex-direction : column;
   justify-content : center;
