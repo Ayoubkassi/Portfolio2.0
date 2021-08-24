@@ -38,6 +38,33 @@
     "items":["DSLR (Canon T7i)","Wide Lens (Tokina 11-16mm F2.8)","Zoom Lens (Canon 24-105mm F4)",
       "Microphone (Rode Videomic Pro)","Compact Camera (Canon G7X)","Drone (DJI Mavic Pro)"]
   }
+],
+
+"techs": [
+  {
+    "title": "Front end",
+    "items": ["Single page Web apps written in create-react-app","Multi-page, server rendered apps written in Next js + React"]
+  },
+  {
+    "title": "Thin Backend Servers (non CPU-bound)",
+    "items": ["Express app for each service.","Single thread event-driven architecture, good for simple services that are mostly waiting on I/O."]
+  },
+  {
+    "title": "Application Servers (CPU-Bound)",
+    "items": ["CPU Intensive Backend Servers","Used for business logic, automation, large data, web APIs","This is the kind of development I want to focus on"]
+  },
+  {
+    "title": "Security",
+    "items": ["JSON Web Tokens are created by Application Servers, backed by dotnet identity","Accepts both cookie and Authorization Bearer tokens",
+     "Service accounts are created for each service that needs to be secured"]
+  },
+  {
+    "title": "Database",
+    "items": ["Storage for JWT Identity, Hangfire, and Application Servers.","Single instance backed by persistent volume (would like to deploy a cluster someday)."]
+  },{
+    "title": "Deployment",
+    "items": ["Docker containers for each microservice with kubernetes orchestration.","Nginx ingress controller connects our microservices together. /api/ goes to the backend server and so on.."]
+  }
 ]
 
 }

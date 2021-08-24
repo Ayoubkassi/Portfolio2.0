@@ -2,7 +2,7 @@ import './App.css';
 import {  Switch,  Route } from "react-router-dom";
 import HomePage from './pages/HomePage/HomePage.component';
 import ContactPage from './pages/ContactPage/ContactPage.component';
-import SoftwarePage from './pages/SoftwarePage';
+import SoftwarePage from './pages/SoftwarePage/SoftwarePage.component';
 import GearPage from './pages/Gear/Gear.component';
 
 function App() {
