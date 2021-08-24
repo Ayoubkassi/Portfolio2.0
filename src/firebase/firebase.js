@@ -1,3 +1,9 @@
+import Firebase from 'firebase/app';
+
+import 'firebase/auth';
+import 'firebase/firestore';
+import { seedDatabase } from '../seed';
+
 
 
 
@@ -11,4 +17,8 @@ const firebaseConfig = {
   measurementId: "G-SN8MXDGPPV"
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebase = Firebase.initializeApp(firebaseConfig);
+
+//seedDatabase(firebase);
+
+export { firebase };

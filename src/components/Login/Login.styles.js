@@ -43,4 +43,8 @@ export const Btn = styled.button`
     transition: all .15s ease-in-out;
 
   }
+
+  &:disabled{
+    opacity : 0.5;
+  }
 `
