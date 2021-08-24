@@ -18,5 +18,26 @@
     "title":"Community",
     "items":["Open source projects on Github","Discord"]
   }
+],
+"gear":[
+  {
+    "title":"Software",
+    "items": ["Video Editing (Premiere Pro CC)","Photo Editing (Photoshop CC)","All Adobe Apps 60% off"]
+  },
+  {
+    "title":"Computer",
+    "items" : ["Laptop (Lenovo Y700)","Keyboard (Velocifire TKL01)","Monitors (Dell U2518D)","Webcam (Logitech C920)",
+              "Desk Microphone (Blue Yeti - sock not included)", "Microphone Stand (Rode PSA1)"]
+  },
+  {
+    "title":"Electronics",
+    "items":["Multimeter (Neoteck 8233D)","Bench Power Supply (DC 30V/10A)","Arduino Uno","LED Strip (Alitove 16.4ft 300 pixel programmable)"]
+  },
+  {
+    "title":"Video & Photo",
+    "items":["DSLR (Canon T7i)","Wide Lens (Tokina 11-16mm F2.8)","Zoom Lens (Canon 24-105mm F4)",
+      "Microphone (Rode Videomic Pro)","Compact Camera (Canon G7X)","Drone (DJI Mavic Pro)"]
+  }
 ]
+
 }

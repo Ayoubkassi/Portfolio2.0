@@ -8,7 +8,7 @@ const Navbar = ({background = "transparent", color= "white"}) => {
       <Features>
         <Left>
           <Item to="/software" color={color}>Software</Item>
-          <Item color={color}>Gear</Item>
+          <Item to="/gear" color={color}>Gear</Item>
         </Left>
         <Right>
           <Item to="/contact" color={color}>Contact</Item>
