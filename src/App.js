@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage/HomePage.component';
 import ContactPage from './pages/ContactPage/ContactPage.component';
 import SoftwarePage from './pages/SoftwarePage/SoftwarePage.component';
 import GearPage from './pages/Gear/Gear.component';
+import Admin from './pages/Admin/Admin.component';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/contact" component={ContactPage} />
         <Route path="/software"  component={SoftwarePage} />
         <Route path="/gear"  component={GearPage} />
+        <Route path="/login" component={Admin} />
       </Switch>
       </>
   );
