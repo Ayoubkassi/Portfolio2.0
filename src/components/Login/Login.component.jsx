@@ -6,11 +6,11 @@ const Login = (props) => {
     <Main>
       <Container>
         <Title>Login</Title>
-        <form>
+        <form autocomplete="off">
           <div class="form-group">
             <div class="form-group">
               <label htmlFor="name">Username</label>
-            <input type="text" required className="form-control" placeholder="Enter Username" />
+            <input type="text" required className="form-control" placeholder="Enter Username" autocomplete="off" />
             </div>
             <label htmlFor="Password">Password</label>
           <input type="password" required className="form-control" placeholder="Enter Password" />
