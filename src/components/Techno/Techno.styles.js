@@ -10,10 +10,16 @@ export const Main = styled.div`
   background :#191919 ;
   padding-top: 70px;
 padding-bottom: 70px;
+max-width : 100vw;
+overflow : hidden;
 `
 export const Container = styled.div`
   width : 83vw;
   margin : 0 auto;
+  @media screen and (max-width : 950px){
+    width : 94vw;
+
+  }
 `
 export const Title = styled.h2`
   font-size: 1.75rem;
@@ -29,4 +35,19 @@ export const Features = styled.div`
   grid-gap : 30px;
   padding-top : 60px;
   padding-bottom: 80px;
+
+  @media screen and (max-width : 950px){
+    grid-template-columns : repeat(3,1fr);
+
+  }
+
+  @media screen and (max-width : 700px){
+    grid-template-columns : repeat(2,1fr);
+
+  }
+
+  @media screen and (max-width : 550px){
+    grid-template-columns : repeat(1,1fr);
+
+  }
 `

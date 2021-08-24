@@ -18,6 +18,10 @@ position : absolute;
 bottom : 2%;
 left: 50%;
 transform : translate(-50%,-10%);
+
+@media screen and (max-width : 550px){
+  bottom : -2%;
+}
 `
 
 export const More = styled(Link)`

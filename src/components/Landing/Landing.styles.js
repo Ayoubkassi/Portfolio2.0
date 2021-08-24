@@ -20,5 +20,6 @@ margin-bottom : .5rem;
 `
 
 export const Info = styled.p`
-  
+
+
 `

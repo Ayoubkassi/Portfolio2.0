@@ -28,4 +28,12 @@ export const Features = styled.div`
   grid-template-columns : repeat(3,1fr);
   grid-gap : 30px;
   margin-top : 40px;
+
+  @media screen and (max-width : 800px){
+    grid-template-columns : repeat(2,1fr);
+  }
+
+  @media screen and (max-width : 500px){
+    grid-template-columns : repeat(1,1fr);
+  }
 `

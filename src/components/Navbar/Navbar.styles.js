@@ -11,6 +11,11 @@ export const Nav = styled.div`
   padding: 50px;
   align-items : center;
 
+  @media screen and (max-width : 427px){
+    display : none;
+    justifu-content : flex-start;
+  }
+
 `
 
 export const Logo = styled(Link)`
@@ -23,6 +28,12 @@ export const Logo = styled(Link)`
   &:hover{
     color : ${({color}) => (color === 'black' ? 'black' : 'white')};
     text-decoration : none;
+  }
+
+  @media screen and (max-width : 427px){
+
+    margin-left : 0;
+    flex-basis : 7vw;
   }
 `
 

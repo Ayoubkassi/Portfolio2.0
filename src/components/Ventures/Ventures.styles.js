@@ -44,6 +44,10 @@ export const Info = styled.div`
   justify-content : space-between;
   align-items : center;
   margin : 90px auto;
+
+  @media screen and (max-width : 700px){
+    flex-direction : column;
+  }
 `
 
 export const Btn = styled.button`
@@ -61,10 +65,15 @@ export const Btn = styled.button`
   line-height: 1.25;
   border-radius: .25rem;
   transition: all .15s ease-in-out;
+
   &:hover{
     background-color: #23272b;
     border-color: #1d2124;
     transition: all .15s ease-in-out;
 
+  }
+
+  @media screen and (max-width : 700px){
+    margin-bottom : 40px;
   }
 `

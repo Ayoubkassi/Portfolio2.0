@@ -10,6 +10,10 @@ export const Main = styled.div`
   grid-template-columns : repeat(7,1fr);
   grid-gap:5px;
   color : white;
+  @media screen and (max-width : 550px){
+    padding : 30px;
+
+  }
 `
 
 export const Item = styled(Link)`

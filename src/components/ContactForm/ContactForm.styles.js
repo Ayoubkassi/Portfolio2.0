@@ -11,6 +11,10 @@ export const Main = styled.div`
 export const Container = styled.div`
   width : 40vw;
   margin : 0 auto;
+  @media screen and (max-width : 600px){
+    width : 80vw;
+    padding-top : 10vw;
+  }
 `
 
 export const Title = styled.h4`
@@ -53,4 +57,10 @@ export const Info = styled.div`
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
+
+  @media screen and (max-width : 600px){
+    flex-direction : column;
+    justify-content : center;
+    text-align : center;
+  }
 `
