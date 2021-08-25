@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,EACE,QAAS,CACT,SAAU,CACV,qBAAsB,CACtB,8BAAgC,CAChC,cACF","file":"main.8ffeb6e6.chunk.css","sourcesContent":["*{\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: 'Karla', sans-serif;\n  font-size: 17px;\n}\n"]}
