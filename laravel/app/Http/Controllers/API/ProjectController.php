@@ -6,9 +6,11 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Collection;
 use Validator;
 use App\Http\Resources\Project as ProjectResource;
 use \stdClass as stdClass;
+use App\Jobs\getProjects;
 
 class ProjectController extends BaseController
 {
@@ -57,44 +59,60 @@ class ProjectController extends BaseController
         //     return $this->sendError('Please validate error' ,$validator->errors() );
         // }
 
-        $response = Http::get('https://api.github.com/users/Ayoubkassi/repos');
-        $my_repos=[];
-        $data = json_decode($response->getBody(), true);
+
+        //$repos = Project::all();
+      //  dispatch(new getProjects ($repos));
+
+        function storeGithubProjects(){
+          $response = Http::get('https://api.github.com/users/Ayoubkassi/repos');
+          $my_repos=[];
+          $data = json_decode($response->getBody(), true);
+
+
+          for($i =0; $i<count($data);$i++){
+
+              $repo              = new stdClass();
+              $repo->name        = $data[$i]["name"];
+              $repo->description = /*$data[$i]["description"]*/"no description";
+              $repo->stars       = $data[$i]["stargazers_count"];
+              $repo->language    = $data[$i]["language"] == null ? "no language" : $data[$i]["language"];
+              $repo->date        = $data[$i]["created_at"];
+              $repo->size        = $data[$i]["size"];
+              $repo->forks       = $data[$i]["forks"];
+              $repo->issues      = $data[$i]["open_issues"];
+              $my_repos[$i]      = $repo;
+              $repo_array = (array) $repo;
+
+              $project = Project::where('name', '=', $repo->name)->first();
+                 if ($project === null) {
+                    $project = Project::create($repo_array);
+                 }
+
+
+
+          }
+
+          return $project;
+
+
+        }
+
+
+
+
         //$github_repos = (array) $repos;
          //foreach($repos as $repo){
-        //   // $new_repo = new stdClass();
-        //   // $new_repo->name = $repo["name"];
-        //
-        //
-          // array_push($my_repos,$repo["name"]);
+          // $new_repo = new stdClass();
+          // $new_repo->name = $repo["name"];
+
+
+        //  array_push($my_repos,$repo["name"]);
          //}
-         for($i =0; $i<count($data);$i++){
-
-             $repo              = new stdClass();
-             $repo->name        = $data[$i]["name"];
-             $repo->description = /*$data[$i]["description"]*/"no description";
-             $repo->stars       = $data[$i]["stargazers_count"];
-             $repo->language    = $data[$i]["language"] == null ? "no language" : $data[$i]["language"];
-             $repo->date        = $data[$i]["created_at"];
-             $repo->size        = $data[$i]["size"];
-             $repo->forks       = $data[$i]["forks"];
-             $repo->issues      = $data[$i]["open_issues"];
-             $my_repos[$i]      = $repo;
-             $repo_array = (array) $repo;
-
-             $project = Project::where('name', '=', $repo->name)->first();
-                if ($project === null) {
-                   $project = Project::create($repo_array);
-                }
 
 
+         $project = storeGithubProjects();
+         return $this->sendResponse(new ProjectResource($project) ,'Project created successfully' );
 
-         }
-
-
-
-
-        return $this->sendResponse(new ProjectResource($project) ,'Project created successfully' );
 
     }
 

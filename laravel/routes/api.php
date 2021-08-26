@@ -24,5 +24,7 @@ Route::post('login', 'API\RegisterController@login');
 
 
 Route::middleware('auth:api')->group( function (){
+
+  //App\Jobs\getProjects
    Route::resource('projects','API\ProjectController');
 });
