@@ -14,6 +14,7 @@ const Repo = ({projects}) => {
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Language</th>
+            <th scope="col">Size(kb)</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@ const Repo = ({projects}) => {
               <td>{project.name}</td>
               <td>{project.description}</td>
               <td>{project.language}</td>
+              <td>{project.size}</td>
             </tr>
           ))
         }
