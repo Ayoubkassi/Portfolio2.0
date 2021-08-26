@@ -2,33 +2,55 @@ import React , {useState} from 'react'
 import { Title , Main , Container , Btn } from './Login.styles';
 import { useHistory } from 'react-router-dom';
 import { firebase } from '../../firebase/firebase';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { setCurrentUser } from '../../redux/user/user.action';
+import { Redirect } from 'react-router-dom';
 
-const Login = (props) => {
+
+const Login = ({user, setCurrentUser}) => {
   const history = useHistory();
   const [username , setUsername ] = useState('');
   const [password , setPassword ] = useState('');
   //const [error , setError ] = useState('');
-
+  console.log(user);
   const isInvalid = username === '' || password === '';
 
   const handleSingIn = (e)=>{
       e.preventDefault();
-      console.log(`Username : ${username} and passowrd : ${password}`);
+      // console.log(`Username : ${username} and passowrd : ${password}`);
+      //
+      // firebase.auth().signInWithEmailAndPassword(username, password)
+      // .then((userCredential) => {
+      //   // Signed in
+      //   history.push('/');
+      //   // ...
+      // })
+      // .catch((error) => {
+      //
+      //   let errorMessage = error.message;
+      //   console.log(errorMessage);
+      //   setUsername('');
+      //   setPassword('');
+      //   //setError(errorMessage);
+      // });
 
-      firebase.auth().signInWithEmailAndPassword(username, password)
-      .then((userCredential) => {
-        // Signed in
-        history.push('/');
-        // ...
-      })
-      .catch((error) => {
+      axios.post('/api/login', {
+    email: username,
+    password: password
+  })
+  .then(function (response) {
+    console.log(response);
+    if(response.status == 200){
+      //setCurrentUser(response.data.data);
+      let currentUser = response.data.data;
+      setCurrentUser(currentUser);
+      <Redirect to={{pathname : 'dashboard', state : {from : '/login'} }} />
+    }
 
-        let errorMessage = error.message;
-        console.log(errorMessage);
-        setUsername('');
-        setPassword('');
-        //setError(errorMessage);
-      });
+  })
+  .catch(err => console.log(err));
+
   }
 
   return (
@@ -51,4 +73,12 @@ const Login = (props) => {
   )
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser : user => dispatch(setCurrentUser(user))
+});
+
+const mapStateToProps = state => ({
+  user : state.user.currentUser
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

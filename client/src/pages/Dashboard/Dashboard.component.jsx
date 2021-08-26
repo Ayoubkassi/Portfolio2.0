@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navbar from '../../components/Navbar/Navbar.component';
 import Connect from '../../components/Connect/Connect.component';
 import Footer from '../../components/Footer/Footer.component';
-import { Main } from './Admin.styles';
-import Login from '../../components/Login/Login.component';
+import { Main } from './Dashboard.styles';
 
 
-const Admin = () => {
-
+const Dashboard = () => {
   return (
     <Main>
       <Navbar background="white" color="black"/>
-      <Login />
+
+    <h2 style={{textAlign : 'center' , color : 'black', padding : '40px 0'}}>  This is Dashboard </h2>
       <Connect />
       <Footer />
     </Main>
@@ -21,5 +20,4 @@ const Admin = () => {
 
 
 
-
-export default  Admin;
+export default Dashboard;

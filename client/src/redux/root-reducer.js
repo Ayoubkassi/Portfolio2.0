@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 //import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
 
-//import userReducer from './user/user.reducer';
+import userReducer from './user/user.reducer';
 import projectReducer from './project/project.reducer';
 
 
@@ -14,7 +14,7 @@ import projectReducer from './project/project.reducer';
 // }
 
 const rootReducer = combineReducers({
-  //user : userReducer,
+  user : userReducer,
   project : projectReducer
 });
 

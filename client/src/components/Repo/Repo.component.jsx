@@ -2,6 +2,8 @@ import React from 'react'
 import { Title , Main , Container } from './Repo.styles';
 import { connect } from 'react-redux';
 
+
+
 const Repo = ({projects}) => {
   projects =projects.slice(20,30);
   return (
