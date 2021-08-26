@@ -73,7 +73,7 @@ class ProjectController extends BaseController
 
               $repo              = new stdClass();
               $repo->name        = $data[$i]["name"];
-              $repo->description = /*$data[$i]["description"]*/"no description";
+              $repo->description = /*$data[$i]["description"]*/$data[$i]["description"] == null ? "no description" : $data[$i]["description"];
               $repo->stars       = $data[$i]["stargazers_count"];
               $repo->language    = $data[$i]["language"] == null ? "no language" : $data[$i]["language"];
               $repo->date        = $data[$i]["created_at"];
