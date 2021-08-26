@@ -14,5 +14,9 @@ class Project extends Model
         'description',
         'stars',
         'language',
+        'date',
+        'size',
+        'forks',
+        'issues'
     ];
 }

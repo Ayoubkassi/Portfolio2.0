@@ -21,6 +21,10 @@ class Project extends JsonResource
            'description' => $this->description,
            'stars'       => $this->stars,
            'language'    => $this->language,
+           'size'        => $this->size,
+           'forks'       => $this->forks,
+           'issues'      => $this->issues,
+           'date'        =>$this->date,
            'created_at'  => $this->created_at->format('d/m/Y'),
            'updated_at' => $this->updated_at->format('d/m/Y')
        ];

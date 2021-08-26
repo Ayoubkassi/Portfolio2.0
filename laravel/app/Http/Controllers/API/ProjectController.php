@@ -5,8 +5,10 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Http;
 use Validator;
 use App\Http\Resources\Project as ProjectResource;
+use \stdClass as stdClass;
 
 class ProjectController extends BaseController
 {
@@ -18,6 +20,8 @@ class ProjectController extends BaseController
     public function index()
     {
         $projects = Project::all();
+
+
         return $this->sendResponse(ProjectResource::collection($projects),
         'all projects sends successfully'
     );
@@ -42,18 +46,54 @@ class ProjectController extends BaseController
     public function store(Request $request)
     {
         //use App\Models\Use
-        $input = $request->all();
-        $validator = Validator::make($input , [
-            'name'=> 'required',
-            'description' => 'required',
-            'language' => 'required'
-        ]);
+        // $input = $request->all();
+        // $validator = Validator::make($input , [
+        //     'name'=> 'required',
+        //     'description' => 'required',
+        //     'language' => 'required'
+        // ]);
+        //
+        // if ($validator->fails()) {
+        //     return $this->sendError('Please validate error' ,$validator->errors() );
+        // }
 
-        if ($validator->fails()) {
-            return $this->sendError('Please validate error' ,$validator->errors() );
-        }
+        $response = Http::get('https://api.github.com/users/Ayoubkassi/repos');
+        $my_repos=[];
+        $data = json_decode($response->getBody(), true);
+        //$github_repos = (array) $repos;
+         //foreach($repos as $repo){
+        //   // $new_repo = new stdClass();
+        //   // $new_repo->name = $repo["name"];
+        //
+        //
+          // array_push($my_repos,$repo["name"]);
+         //}
+         for($i =0; $i<count($data);$i++){
 
-        $project = Project::create($input);
+             $repo              = new stdClass();
+             $repo->name        = $data[$i]["name"];
+             $repo->description = /*$data[$i]["description"]*/"no description";
+             $repo->stars       = $data[$i]["stargazers_count"];
+             $repo->language    = $data[$i]["language"] == null ? "no language" : $data[$i]["language"];
+             $repo->date        = $data[$i]["created_at"];
+             $repo->size        = $data[$i]["size"];
+             $repo->forks       = $data[$i]["forks"];
+             $repo->issues      = $data[$i]["open_issues"];
+             $my_repos[$i]      = $repo;
+             $repo_array = (array) $repo;
+
+             $project = Project::where('name', '=', $repo->name)->first();
+                if ($project === null) {
+                   $project = Project::create($repo_array);
+                }
+
+
+
+         }
+
+
+
+
         return $this->sendResponse(new ProjectResource($project) ,'Project created successfully' );
 
     }
@@ -112,7 +152,7 @@ class ProjectController extends BaseController
         $project->language = $input['language'];
         return $this->sendResponse(new ProjectResource($project) ,'Project updated successfully' );
 
-        
+
     }
 
     /**
@@ -122,7 +162,7 @@ class ProjectController extends BaseController
      * @return \Illuminate\Http\Response
      */
     public function destroy(Project $project)
-    {   
+    {
         $project->delete();
         return $this->sendResponse(new ProjectResource($project) ,'Project deleted successfully' );
 

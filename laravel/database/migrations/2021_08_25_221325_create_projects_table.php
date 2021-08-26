@@ -19,6 +19,10 @@ class CreateProjectsTable extends Migration
             $table->string('description');
             $table->string('language');
             $table->integer('stars');
+            $table->integer('forks');
+            $table->integer('size');
+            $table->integer('issues');
+            $table->string('date');
             $table->timestamps();
         });
     }
