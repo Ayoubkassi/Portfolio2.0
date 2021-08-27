@@ -2,6 +2,7 @@ import React from 'react'
 import { Title , Main , Container } from './Repo.styles';
 import { connect } from 'react-redux';
 import { DataGrid } from '@material-ui/data-grid';
+import './Repo.styles.css';
 
 
 const columns = [
@@ -62,13 +63,16 @@ const Repo = ({projects}) => {
     <Main>
       <Container>
       <Title>Software Repository</Title>
-      <div style={{ height: 810, width: '100%', paddingBottom: "100px",paddingTop: "60px", marginBottom: "50px", fontSize : '14px' }}>
+      <div style={{ height: 740, width: '100%', paddingBottom: "70px",paddingTop: "10px" }}>
       <DataGrid
         rows={projects}
         columns={columns}
         pageSize={10}
         //checkboxSelection
         //disableSelectionOnClick
+        style= {{color: '#212529' ,     fontSize: '0.8rem',
+        fontWeight: '400',
+        lineHeight: '1.5' }}
       />
       </div>
     {/*  <table className="table" style={{ paddingBottom: "100px",paddingTop: "60px", marginBottom: "50px"}}>
