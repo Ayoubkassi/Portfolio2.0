@@ -13,6 +13,12 @@ export const Container = styled.div`
   width : 40vw;
   margin : 0 auto;
   margin-top : -10vw;
+
+  @media screen and (max-width : 800px){
+    width : 90vw;
+  }
+
+
 `
 export const Title = styled.h3`
   font-size: 1.25rem;
