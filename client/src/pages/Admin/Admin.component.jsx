@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navbar from '../../components/Navbar/Navbar.component';
 import Connect from '../../components/Connect/Connect.component';
 import Footer from '../../components/Footer/Footer.component';

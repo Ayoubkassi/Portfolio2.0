@@ -22,7 +22,7 @@ const Repo = ({projects}) => {
         <tbody>
         {
           projects.map((project)=>(
-            <tr>
+            <tr  key={project.id}>
               <td>{project.name}</td>
               <td>{project.description}</td>
               <td>{project.language}</td>
