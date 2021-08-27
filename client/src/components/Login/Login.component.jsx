@@ -12,9 +12,15 @@ const Login = ({user, setCurrentUser}) => {
   const history = useHistory();
   const [username , setUsername ] = useState('');
   const [password , setPassword ] = useState('');
-  //const [error , setError ] = useState('');
+  const [error , setError ] = useState('');
   console.log(user);
   const isInvalid = username === '' || password === '';
+
+  function redirectClick(){
+    setError('');
+    history.push("/login");
+  }
+
 
   const handleSingIn = (e)=>{
       e.preventDefault();
@@ -49,13 +55,22 @@ const Login = ({user, setCurrentUser}) => {
     }
 
   })
-  .catch(err => console.log(err));
+  .catch(err => {
+    setError('Failed to log in as Ayoubkassi');
+  });
 
   }
 
   return (
     <Main>
       <Container>
+      { error ?
+          <>
+            <h4 style={{textAlign : 'center' , paddingTop : '10vw'}}>{error}</h4>
+            <Btn style={{marginTop : '8px'}} onClick={redirectClick}>Rerty</Btn>
+          </>
+         :
+        <>
         <Title>Login</Title>
         <form autoComplete="off" onSubmit={handleSingIn}>
           <div className="form-group">
@@ -68,6 +83,8 @@ const Login = ({user, setCurrentUser}) => {
           </div>
           <Btn disabled={isInvalid} type="submit">Submit</Btn>
         </form>
+        </>
+      }
       </Container>
     </Main>
   )

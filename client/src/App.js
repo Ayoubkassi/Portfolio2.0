@@ -6,7 +6,7 @@ import SoftwarePage from './pages/SoftwarePage/SoftwarePage.component';
 import GearPage from './pages/Gear/Gear.component';
 import Admin from './pages/Admin/Admin.component';
 import Dashboard from './pages/Dashboard/Dashboard.component';
-import { ProtectedRoute } from './helpers/routes';
+import { ProtectedRoute , IsUserRedirect } from './helpers/routes';
 import { connect } from 'react-redux';
 
 
@@ -19,7 +19,9 @@ function App({user}) {
         <Route path="/contact" component={ContactPage} />
         <Route path="/software"  component={SoftwarePage} />
         <Route path="/gear"  component={GearPage} />
-        <Route path="/login" component={Admin} />
+        <IsUserRedirect path="/login" user={user} loggedInPath='/dashboard'  >
+          <Admin />
+        </IsUserRedirect>
         <ProtectedRoute user={user} path="/dashboard">
           <Dashboard />
         </ProtectedRoute>
