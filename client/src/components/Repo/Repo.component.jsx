@@ -1,16 +1,77 @@
 import React from 'react'
 import { Title , Main , Container } from './Repo.styles';
 import { connect } from 'react-redux';
+import { DataGrid } from '@material-ui/data-grid';
+
+
+const columns = [
+  { field: 'name', headerName: 'Title', width: 180 },
+  {
+    field: 'description',
+    headerName: 'Description',
+    width: 257,
+    editable: true,
+  },
+  {
+    field: 'language',
+    headerName: 'Language',
+    width: 140,
+    editable: true,
+  },
+  {
+    field: 'created_at',
+    headerName: 'Created at',
+    width: 150,
+    editable: true,
+  },
+  {
+    field: 'forks',
+    headerName: 'Forks',
+    width: 80,
+    editable: true,
+  },
+  {
+    field: 'issues',
+    headerName: 'Issues',
+    width: 80,
+    editable: true,
+  },
+  {
+    field: 'size',
+    headerName: 'Size (kb)',
+    width: 110,
+    editable: true,
+  },
+  {
+    field: 'stars',
+    headerName: 'Stars',
+    description: 'This column has the value of each project',
+    sortable: false,
+    width: 80,
+  },
+];
+
+
+
 
 
 
 const Repo = ({projects}) => {
-  projects =projects.slice(20,30);
+  console.log(projects);
   return (
     <Main>
       <Container>
       <Title>Software Repository</Title>
-      <table className="table" style={{ paddingBottom: "100px",paddingTop: "60px", marginBottom: "50px"}}>
+      <div style={{ height: 810, width: '100%', paddingBottom: "100px",paddingTop: "60px", marginBottom: "50px", fontSize : '14px' }}>
+      <DataGrid
+        rows={projects}
+        columns={columns}
+        pageSize={10}
+        //checkboxSelection
+        //disableSelectionOnClick
+      />
+      </div>
+    {/*  <table className="table" style={{ paddingBottom: "100px",paddingTop: "60px", marginBottom: "50px"}}>
         <thead>
           <tr>
             <th scope="col">Title</th>
@@ -29,7 +90,8 @@ const Repo = ({projects}) => {
               <td>{project.size}</td>
             </tr>
           ))
-        }
+        }*/}
+
         {/*  <tr>
             <td>Video Editing Automation</td>
             <td>Toolkit of algorithms to automate the video editing process</td>
@@ -46,9 +108,9 @@ const Repo = ({projects}) => {
             <td>Java</td>
           </tr> */}
 
-        </tbody>
+      {/*  </tbody>
 
-      </table>
+      </table>*/}
       </Container>
     </Main>
   )
