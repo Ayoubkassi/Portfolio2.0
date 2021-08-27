@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
 import { Title , Main , Container , Btn } from './Login.styles';
 import { useHistory } from 'react-router-dom';
-//import { firebase } from '../../firebase/firebase';
+import { firebase } from '../../firebase/firebase';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setCurrentUser } from '../../redux/user/user.action';
@@ -24,24 +24,28 @@ const Login = ({user, setCurrentUser}) => {
 
   const handleSingIn = (e)=>{
       e.preventDefault();
-      // console.log(`Username : ${username} and passowrd : ${password}`);
-      //
-      // firebase.auth().signInWithEmailAndPassword(username, password)
-      // .then((userCredential) => {
-      //   // Signed in
-      //   history.push('/');
-      //   // ...
-      // })
-      // .catch((error) => {
-      //
-      //   let errorMessage = error.message;
-      //   console.log(errorMessage);
-      //   setUsername('');
-      //   setPassword('');
-      //   //setError(errorMessage);
-      // });
+      console.log(`Username : ${username} and passowrd : ${password}`);
 
-      axios.post('/api/login', {
+      firebase.auth().signInWithEmailAndPassword(username, password)
+      .then((userCredential) => {
+        // Signed in
+        history.push('/dashboard');
+        let currentUser = {
+          email : username ,
+          password : password
+        }
+        setCurrentUser(currentUser);
+        // ...
+      })
+      .catch((error) => {
+
+        setError('Failed to log in as Ayoubkassi');
+        setUsername('');
+        setPassword('');
+        //setError(errorMessage);
+      });
+
+    /*  axios.post('/api/login', {
     email: username,
     password: password
   })
@@ -57,7 +61,7 @@ const Login = ({user, setCurrentUser}) => {
   })
   .catch(err => {
     setError('Failed to log in as Ayoubkassi');
-  });
+  });*/
 
   }
 

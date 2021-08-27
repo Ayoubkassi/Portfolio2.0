@@ -9,6 +9,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { updateProjects } from '../../redux/project/project.action';
 import  WithSpinner  from '../../components/with-spinner/with-spinner.component';
+import { firebase } from '../../firebase/firebase';
 
 
 const RepowWithSpinner = WithSpinner(Repo);
@@ -26,14 +27,44 @@ const SoftwarePage = ({updateProjects}) => {
   }
 }
 
+// useEffect(()=>{
+//   axios.get('/api/projects',config).then(res => {
+//     updateProjects(res.data.data);
+//     setLoading(false);
+//
+//
+//   })
+//                           .catch(err => console.log(err));
+// },[]);
+
+let projects = [];
 useEffect(()=>{
-  axios.get('/api/projects',config).then(res => {
-    updateProjects(res.data.data);
+  let q = firebase.firestore().collection('projects').get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+      let currentProject = doc.data().project;
+    projects.push( currentProject );
+    });
+    updateProjects(projects);
     setLoading(false);
 
-  })
-                          .catch(err => console.log(err));
+  });
+
+/*
+  Add our project into the firestore
+projects.map((project) =>(
+      firebase.firestore().collection('projects').add({
+          project : project
+      })
+
+  ));*/
 },[]);
+
+
+
+
+
+
   return (
     <Main>
       <Navbar background="white" color="black"/>

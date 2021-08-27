@@ -58,7 +58,7 @@ const columns = [
 
 
 const Repo = ({projects}) => {
-  console.log(projects);
+
   return (
     <Main>
       <Container>
