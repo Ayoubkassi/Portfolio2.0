@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Http;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/redis', function (){
+  //$client = new Predis\Client('tcp://127.0.0.1:6379?database=15');
+  Redis::set('Sybil', 'Stallone');
+$nom =  Redis::get('Sybil');
+return ('Sybil '.$nom);
+$response = Http::get('https://ayoubkassi.cf');
+//return $response->object();
+
 });
 
 Auth::routes();
